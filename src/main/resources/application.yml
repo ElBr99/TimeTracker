@@ -1,0 +1,33 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/TimeTracker
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: public
+        format_sql: true
+        hbm2ddl.auto: validate
+
+
+  liquibase:
+    change-log: classpath:/db/changelog/changelog-master.yml
+    enabled: true
+    liquibaseSchema: public
+    defaultSchema: public
+
+logging:
+  level:
+    root: INFO
+
+cron:
+  value: 0 0 0 */2 * *
+
+
+
+server:
+  port: 8081
